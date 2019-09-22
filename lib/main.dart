@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:dio/dio.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -114,6 +116,10 @@ class RandomWordsState extends State<RandomWords> {
             _saved.remove(pair);
           } else {
             _saved.add(pair);
+
+            print("dio getHttp");
+            getHttp();
+
           }
         });
       },               // ... 一直到这里
@@ -121,6 +127,14 @@ class RandomWordsState extends State<RandomWords> {
   }
 }
 
+void getHttp() async {
+  try {
+    Response response = await Dio().get("http://www.baidu.com");
+    print(response);
+  } catch (e) {
+    print(e);
+  }
+}
 
 class RandomWords extends StatefulWidget {
   @override
