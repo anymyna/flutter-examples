@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:dio/dio.dart';
+import 'package:startup_namer/LogUtils.dart';
 
 
 void main() => runApp(MyApp());
@@ -116,9 +117,16 @@ class RandomWordsState extends State<RandomWords> {
             _saved.remove(pair);
           } else {
             _saved.add(pair);
+            print("print dio duck 1");
 
-            print("dio getHttp");
-            getHttp();
+            debugPrint('debugPrint dio duck"');
+            LogUtils.v('duck ', " test log ");
+
+            LogUtils.e("duck", "test log");
+//            LogUtils.i("duck", "test log");
+
+            print("dio getHttp 1");
+            //getHttp();   // dio 使用
 
           }
         });
