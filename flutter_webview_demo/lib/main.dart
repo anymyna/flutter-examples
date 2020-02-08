@@ -1,8 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_demo/webview/webview_page.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 void main(){
-  return runApp(MyApp());
+  //return runApp(MyApp());
+  return runApp(new MaterialApp(
+    routes: {
+      "/": (_) => new WebviewScaffold(
+        url: "https://www.baidu.com",
+        appBar: new AppBar(
+          title: new Text("Widget webview"),
+        ),
+      ),
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget{
