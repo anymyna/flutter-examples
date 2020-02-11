@@ -20,7 +20,8 @@ import io.flutter.plugin.common.PluginRegistry;
 public class MyMethodChannel implements MethodChannel.MethodCallHandler {
 
 
-    public static String CHANNEL = "flutter_study_app";
+    public static String CHANNEL = "samples.flutter.io/battery";
+
 
     static MethodChannel mMethodChannel;
 
@@ -37,6 +38,11 @@ public class MyMethodChannel implements MethodChannel.MethodCallHandler {
         MyMethodChannel instance = new MyMethodChannel(registrar);
         //setMethodCallHandler在此通道上接收方法调用的回调
         mMethodChannel.setMethodCallHandler(instance);
+
+
+
+
+
     }
 
 
