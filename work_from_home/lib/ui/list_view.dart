@@ -29,6 +29,7 @@ class _ListViewState extends State<HomeList> {
     'shared_preferences数据持久化',
     'Flutter Channel',
     'url_launcher',
+    'diaglog_show',
   ];
 
   @override
@@ -108,6 +109,11 @@ class _ListViewState extends State<HomeList> {
           _listItem(itemTitles[8], () {
             //Flutter Channel
             Application.router.navigateTo(context, Routes.urlLauncher,
+                transition: TransitionType.cupertino);
+          }),
+          _listItem(itemTitles[9], () {
+            //Flutter Channel
+            Application.router.navigateTo(context, Routes.dialogShow,
                 transition: TransitionType.cupertino);
           }),
         ],

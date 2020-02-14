@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import '../ui/home_page.dart';
+import '../ui/dialog_page.dart';
 import '../ui/transition_page.dart';
 import '../ui/event_bus_demo.dart';
 
@@ -77,4 +78,11 @@ var channelHandler = Handler(
 var urlLauncherHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       //return UrlLauncherDemo();
+    });
+
+
+//flutter channel
+var dialogHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      return MyDialog();
     });

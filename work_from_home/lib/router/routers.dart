@@ -18,6 +18,7 @@ class Routes {
   static String sharedPreferences = "/sharedPreferences";
   static String flutterChannel = "/flutterChannel";
   static String urlLauncher = "/urlLauncher";
+  static String dialogShow = "/dialogShow";
 
 
   static void configureRoutes(Router router) {
@@ -38,6 +39,7 @@ class Routes {
     router.define(sharedPreferences, handler: spHandler);
     router.define(flutterChannel, handler: channelHandler);
     router.define(urlLauncher, handler: urlLauncherHandler);
+    router.define(dialogShow, handler: dialogHandler);
 
   }
 }
