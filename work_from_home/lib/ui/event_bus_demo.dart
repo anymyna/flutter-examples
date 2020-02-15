@@ -8,6 +8,8 @@
 import 'package:flutter/material.dart';
 import '../common/events.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../common/events.dart';
+import 'dart:async';
 
 class EventBusPage extends StatefulWidget{
   @override
@@ -19,15 +21,46 @@ class EventBusPage extends StatefulWidget{
 }
 
 class _EventBusPageState extends State<EventBusPage> {
-
+  StreamSubscription _colorSubscription;
   TextEditingController _colorController=new TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    //
+    startTime();
+//
+    //订阅eventbus
+
+
+
+    _colorSubscription = eventBus.on<DialogEvent>().listen((event) {
+      //
+      Fluttertoast.showToast(msg: "DialogEvent rece ");
+//      startTime();
+      showAlertDialog(context);
+    });
+
 
   }
+
+
+  void toHome() {
+//    Navigator.of(context).pushReplacementNamed(Constant.HOME_PAGE);
+//    Fluttertoast.showToast(msg: "toHome");
+//    showAlertDialog(context);
+
+    Fluttertoast.showToast(msg: "dialog DialogEvent send");
+    eventBus.fire(DialogEvent(""));
+
+  }
+
+
+  startTime() async {
+    Fluttertoast.showToast(msg: "startTime");
+    var _duration = new Duration(seconds: 3);
+    return new Timer(_duration, toHome);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +107,10 @@ class _EventBusPageState extends State<EventBusPage> {
   _getBottonView(){
     return RaisedButton(
         onPressed: (){
+
+
+          showAlertDialog(context);
+
           if(_colorController.text==null||_colorController.text==""){
             Fluttertoast.showToast(msg: "请输入正确的颜色值");
             return;
@@ -92,4 +129,24 @@ class _EventBusPageState extends State<EventBusPage> {
   }
 
 
+}
+
+
+void showAlertDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (_) =>
+      new AlertDialog(
+          title: new Text("Dialog Title"),
+          content: new Text("This is my content"),
+          actions: <Widget>[
+            new FlatButton(child: new Text("CANCEL"), onPressed: () {
+              Navigator.of(context).pop();
+            },),
+            new FlatButton(child: new Text("OK"), onPressed: () {
+              Navigator.of(context).pop();
+            },)
+          ]
+
+      ));
 }
