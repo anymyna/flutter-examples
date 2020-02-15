@@ -4,6 +4,7 @@ import '../ui/home_page.dart';
 import '../ui/dialog_page.dart';
 import '../ui/transition_page.dart';
 import '../ui/event_bus_demo.dart';
+import '../ui/preferences_demo.dart';
 
 //欢迎页面
 var transitionHandler = Handler(
@@ -65,7 +66,7 @@ var providerHandler = Handler(
 //sharedPreferences
 var spHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-      //return PreferencesDemo();
+      return PreferencesDemo();
     });
 
 //flutter channel
