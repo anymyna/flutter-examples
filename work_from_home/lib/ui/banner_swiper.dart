@@ -1,6 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import '../common/screen.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'home_news_banner_view.dart';
 
 class SwiperPage extends StatefulWidget {
   @override
@@ -52,20 +57,40 @@ class MyHomeState extends State<SwiperPage> {
               children: <Widget>[
                 FlatButton(
                   color: Colors.blue,
-                  child: Text("AlertDialog"),
+                  child: Text("Swiper"),
                   onPressed: (){
-                    showAlertDialog(context);
+                    //showAlertDialog(context);
                   },
                 ),
+              ],
+            ),
+            SizedBox(height: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                getBanner(),
               ],
             ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                getBanner(),
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text("carousel_slider"),
+                  onPressed: (){
+                    //showAlertDialog(context);
+                  },
+                ),
               ],
-            )
+            ),
+            SizedBox(height: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new NewsBannerView(bannerDatas),
+              ],
+            ),
           ],
         )
     )
@@ -78,7 +103,7 @@ class MyHomeState extends State<SwiperPage> {
       width: MediaQuery.of(context).size.width,
       //1.8是banner宽高比，0.8是viewportFraction的值
       height: MediaQuery.of(context).size.width / 1.8 * 0.8,
-      padding: EdgeInsets.only(top: 10),
+      //padding: EdgeInsets.only(top: 10),
       child: Swiper(
         itemCount: bannerDatas.length,
         itemBuilder: (BuildContext context, int index) {
@@ -119,8 +144,6 @@ class MyHomeState extends State<SwiperPage> {
       ),
     );
   }
-
-
 }
 
 void showAlertDialog(BuildContext context) {
