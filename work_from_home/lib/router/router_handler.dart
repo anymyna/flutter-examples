@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import '../ui/home_page.dart';
 import '../ui/dialog_page.dart';
+import '../ui/banner_swiper.dart';
 import '../ui/transition_page.dart';
 import '../ui/event_bus_demo.dart';
 import '../ui/preferences_demo.dart';
@@ -86,4 +87,11 @@ var urlLauncherHandler = Handler(
 var dialogHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return MyDialog();
+    });
+
+
+//flutter channel
+var bannerHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      return SwiperPage();
     });

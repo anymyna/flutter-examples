@@ -9,7 +9,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import '../common/events.dart';
 
 class PreferencesDemo extends StatefulWidget{
 
@@ -23,6 +23,7 @@ class PreferencesDemo extends StatefulWidget{
 
 class _PreferencesState extends State<PreferencesDemo> {
 
+
   TextEditingController _nameController=new TextEditingController();
   TextEditingController _ageController=new TextEditingController();
   String _data = "暂无数据";
@@ -34,7 +35,18 @@ class _PreferencesState extends State<PreferencesDemo> {
   @override
   void initState() {
     super.initState();
+    _addDialog();
 
+
+  }
+
+
+  ///增
+  _addDialog() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("diolog", '11');
+    Fluttertoast.showToast(msg: "dialog DialogEvent send");
+    eventBus.fire(DialogEvent(""));
   }
 
 

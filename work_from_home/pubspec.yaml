@@ -27,6 +27,7 @@ dependencies:
   fluttertoast: ^3.0.4 #toast提示
   event_bus: ^1.1.0 #eventbus
   shared_preferences: ^0.5.3+4 #sp
+  flutter_swiper : ^1.1.6
 
 dev_dependencies:
   flutter_test:

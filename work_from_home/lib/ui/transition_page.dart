@@ -63,7 +63,7 @@ class TransitionPageState extends State<TransitionPage> with SingleTickerProvide
 
               Padding(
                   padding: EdgeInsets.only(bottom: 50.0),
-                  child:Text("Test",style: TextStyle(color: Colors.black,fontSize: 20),),
+                  child:Text("work from home",style: TextStyle(color: Colors.black,fontSize: 20),),
                   )
 
 

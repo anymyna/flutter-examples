@@ -7,6 +7,7 @@ import 'ui/transition_page.dart';
 import 'res/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'common/events.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,6 +27,9 @@ class MyApp extends StatefulWidget {
   }
 }
 
+
+
+
 class _MyAppState extends State<MyApp>{
 
   Color _primaryColor;
@@ -43,6 +47,7 @@ class _MyAppState extends State<MyApp>{
     // TODO: implement initState
     super.initState();
     _setThemeColor();
+    //showAlertDialog(context);
     //订阅eventbus
     _colorSubscription = eventBus.on<ThemeColorEvent>().listen((event) {
       //缓存主题色
@@ -50,6 +55,7 @@ class _MyAppState extends State<MyApp>{
       Color color = AppColors.getColor(event.colorStr);
       setState(() {
         _primaryColor = color;
+        Fluttertoast.showToast(msg: "eventBus");
       });
     });
 
@@ -86,4 +92,25 @@ class _MyAppState extends State<MyApp>{
       _primaryColor = AppColors.getColor(cacheColorStr);
     });
   }
+
+}
+
+
+void showAlertDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (_) =>
+      new AlertDialog(
+          title: new Text("Dialog Title"),
+          content: new Text("This is my content"),
+          actions: <Widget>[
+            new FlatButton(child: new Text("CANCEL"), onPressed: () {
+              Navigator.of(context).pop();
+            },),
+            new FlatButton(child: new Text("OK"), onPressed: () {
+              Navigator.of(context).pop();
+            },)
+          ]
+
+      ));
 }

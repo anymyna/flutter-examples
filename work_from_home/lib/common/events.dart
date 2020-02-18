@@ -12,3 +12,10 @@ class ThemeColorEvent {
 
   ThemeColorEvent(this.colorStr);
 }
+
+
+/// Event 修改主题色
+class DialogEvent {
+  String Str;
+  DialogEvent(this.Str);
+}

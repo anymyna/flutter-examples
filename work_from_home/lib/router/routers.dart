@@ -19,6 +19,7 @@ class Routes {
   static String flutterChannel = "/flutterChannel";
   static String urlLauncher = "/urlLauncher";
   static String dialogShow = "/dialogShow";
+  static String bannerPage = "/bannerPage";
 
 
   static void configureRoutes(Router router) {
@@ -40,6 +41,7 @@ class Routes {
     router.define(flutterChannel, handler: channelHandler);
     router.define(urlLauncher, handler: urlLauncherHandler);
     router.define(dialogShow, handler: dialogHandler);
+    router.define(bannerPage, handler: bannerHandler);
 
   }
 }

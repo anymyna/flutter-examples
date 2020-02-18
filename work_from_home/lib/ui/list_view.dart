@@ -30,6 +30,7 @@ class _ListViewState extends State<HomeList> {
     'Flutter Channel',
     'url_launcher',
     'diaglog_show',
+    '海报轮播',
   ];
 
   @override
@@ -116,6 +117,11 @@ class _ListViewState extends State<HomeList> {
             Application.router.navigateTo(context, Routes.dialogShow,
                 transition: TransitionType.cupertino);
           }),
+          _listItem(itemTitles[10], () {
+            //Flutter Channel
+            Application.router.navigateTo(context, Routes.bannerPage,
+                transition: TransitionType.cupertino);
+          }),
         ],
       ),
     );
@@ -135,3 +141,6 @@ class _ListViewState extends State<HomeList> {
     );
   }
 }
+
+
+
