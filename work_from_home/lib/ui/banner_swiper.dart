@@ -102,7 +102,8 @@ class MyHomeState extends State<SwiperPage> {
     return Container(
       width: MediaQuery.of(context).size.width,
       //1.8是banner宽高比，0.8是viewportFraction的值
-      height: MediaQuery.of(context).size.width / 1.8 * 0.8,
+      //height: MediaQuery.of(context).size.width / 1.8 * 0.8,
+      height: MediaQuery.of(context).size.width / 1.8,
       //padding: EdgeInsets.only(top: 10),
       child: Swiper(
         itemCount: bannerDatas.length,
@@ -133,9 +134,9 @@ class MyHomeState extends State<SwiperPage> {
         ),
 
         //视图宽度，即显示的item的宽度屏占比
-        viewportFraction: 0.8,
+        //viewportFraction: 0.8,
         //两侧item的缩放比
-        scale: 0.9,
+        //scale: 0.9,
 
         onTap: (int index) {
           //点击事件，返回下标
