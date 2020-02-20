@@ -6,6 +6,9 @@ import '../ui/banner_swiper.dart';
 import '../ui/transition_page.dart';
 import '../ui/event_bus_demo.dart';
 import '../ui/preferences_demo.dart';
+import '../ui/pointer.dart';
+import '../ui/notification.dart';
+import '../ui/gesture_detector.dart';
 
 //欢迎页面
 var transitionHandler = Handler(
@@ -39,6 +42,7 @@ var eventBusHandler = Handler(
 var fileZipHandler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     //return FileZipDemo();
+    return PointerRoute();
     },);
 
 //WebView（flutter_webview_plugin）
@@ -47,6 +51,7 @@ var webViewPlginHandler = Handler(
       String url = params['url']?.first;
       String title = params['title']?.first;
       //return WebViewPlgin(url: url,title: title,);
+      return NotificationRoute();
     });
 
 //WebView（flutter官方插件）
@@ -55,6 +60,7 @@ var flutterWebViewHandler = Handler(
       String url = params['url']?.first;
       String title = params['title']?.first;
       //return FlutterWebView(url: url,barTitle: title,);
+      return GestureDetectorRoute();
     });
 
 

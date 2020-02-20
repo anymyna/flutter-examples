@@ -22,9 +22,9 @@ class _ListViewState extends State<HomeList> {
   List itemTitles = [
     'sqflite数据库',
     'eventbus事件总线',
-    '文件解压缩',
-    'WebView（flutter_webview_plugin）',
-    'WebView（flutter官方插件）',
+    '原始指针事件',   //  文件解压缩
+    'Notification',//WebView（flutter_webview_plugin）
+    'GestureDetector',//WebView（flutter官方插件）
     'provider状态管理',
     'shared_preferences数据持久化',
     'Flutter Channel',
