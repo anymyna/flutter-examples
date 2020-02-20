@@ -113,7 +113,7 @@ class _ListViewState extends State<HomeList> {
                 transition: TransitionType.cupertino);
           }),
           _listItem(itemTitles[9], () {
-            //Flutter Channel
+            //Diaolog
             Application.router.navigateTo(context, Routes.dialogShow,
                 transition: TransitionType.cupertino);
           }),
