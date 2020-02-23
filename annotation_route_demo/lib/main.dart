@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).push(PageRouteBuilder(
                     opaque: false,
                     pageBuilder: (_, __, ___) {
-                      //return AppRoute.getPage('page://search', {});
+
                       return AppRoute.getPage('page://page1', {});
                     },
                     transitionDuration: Duration(milliseconds: 200),

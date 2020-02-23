@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'package:annotation_route/route.dart';
 
-//@ARoute(url: 'myapp://pageb', params: {'parama': 'b'})
-//@ARoute(url: 'myapp://pageb', params: {'parama': 'b'})
-//@ARoute(url: 'page://search')
 @ARoute(url: 'page://page1')
 class FirstPage extends StatelessWidget {
   FirstPage(this.option);
