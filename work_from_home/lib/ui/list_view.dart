@@ -9,6 +9,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../router/application.dart';
 import '../router/routers.dart';
+import 'package:share/share.dart';
 
 class HomeList extends StatefulWidget {
   @override
@@ -20,16 +21,16 @@ class HomeList extends StatefulWidget {
 
 class _ListViewState extends State<HomeList> {
   List itemTitles = [
-    'sqflite数据库',
+    '分享',
     'eventbus事件总线',
     '原始指针事件',   //  文件解压缩
     'Notification',//WebView（flutter_webview_plugin）
     'GestureDetector',//WebView（flutter官方插件）
     'provider状态管理',
-    'shared_preferences数据持久化',
+    'shared_preferences',
     'Flutter Channel',
     'url_launcher',
-    'diaglog_show',
+    '对话框',
     '海报轮播',
   ];
 
@@ -43,6 +44,9 @@ class _ListViewState extends State<HomeList> {
             //sqflite数据库
             Application.router.navigateTo(context, Routes.sqflitePage,
                 transition: TransitionType.fadeIn);
+//            Share.share(
+//                '【百度一下】\nhttps://baidu.com');
+
           }),
           _listItem(itemTitles[1], () {
             //eventbus事件总线

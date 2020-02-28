@@ -9,6 +9,7 @@ import '../ui/preferences_demo.dart';
 import '../ui/pointer.dart';
 import '../ui/notification.dart';
 import '../ui/gesture_detector.dart';
+import '../ui/share_page.dart';
 
 //欢迎页面
 var transitionHandler = Handler(
@@ -28,6 +29,8 @@ var homeHandler = Handler(
 var sqfliteHandler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     //return SqflitePage();
+    return SharePage();
+
   },
 );
 
