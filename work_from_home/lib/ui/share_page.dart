@@ -1,6 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
+import 'package:share/share.dart' as ShareAll;
+import 'package:esys_flutter_share/esys_flutter_share.dart';
+
+import 'dart:typed_data';
+
+import 'package:flutter/services.dart';
 
 class SharePage extends StatefulWidget {
   @override
@@ -33,7 +38,7 @@ class ShareState extends State<SharePage> {
                   color: Colors.blue,
                   child: Text("Share"),
     onPressed: (){
-            Share.share(
+            ShareAll.Share.share(
                 '【百度一下】\nhttps://baidu.com');
                   },
                 ),
@@ -43,22 +48,27 @@ class ShareState extends State<SharePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                OutlineButton(
-                  color: Colors.blue,//给OutlineButton设置背景颜色是没有用的
-                  child: Text("SimpleDialog"),
-                  onPressed: (){
-                    showDialog(
-                      context: context,
-                      builder: (context) =>
-                          SimpleDialog(title: Text("标题"), children: <Widget>[
-                            SimpleDialogOption(child: Text('内容1')),
-                            SimpleDialogOption(child: Text('内容2')),
-                          ]),
-                    );
-                  },
+                RaisedButton(
+                  child: Text('Share text'),
+                  onPressed: () async => await _shareText(),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+
+                RaisedButton(
+                  child: Text('Share image'),
+                  onPressed: () async => await _shareImage(),
+                ),
+
+              ],
+            ),
+
+
+
           ],
         )
     )
@@ -85,4 +95,23 @@ void showAlertDialog(BuildContext context) {
       ));
 }
 
+Future<void> _shareText() async {
+  try {
+    Share.text('share text title',
+        'This is my text to share with other applications.', 'text/plain');
+  } catch (e) {
+    print('error: $e');
+  }
+}
+
+Future<void> _shareImage() async {
+  try {
+    final ByteData bytes = await rootBundle.load('assets/images/logo.jpg');
+    await Share.file(
+        'esys image', 'esys.png', bytes.buffer.asUint8List(), 'image/png',
+        text: 'My optional text.');
+  } catch (e) {
+    print('error: $e');
+  }
+}
 
