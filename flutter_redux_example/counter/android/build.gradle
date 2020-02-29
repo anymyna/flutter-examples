@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/repository/google'}
+        maven{ url 'http://maven.aliyun.com/repository/jcenter'}
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+        google()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+    }
+}
+
+allprojects {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/repository/google'}
+        maven{ url 'http://maven.aliyun.com/repository/jcenter'}
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+        google()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
