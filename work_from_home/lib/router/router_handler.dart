@@ -10,6 +10,7 @@ import '../ui/pointer.dart';
 import '../ui/notification.dart';
 import '../ui/gesture_detector.dart';
 import '../ui/share_page.dart';
+import '../ui/provider_demo.dart';
 
 //欢迎页面
 var transitionHandler = Handler(
@@ -70,7 +71,7 @@ var flutterWebViewHandler = Handler(
 //provider状态管理
 var providerHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-      //return ProviderDemoPage();
+      return ProviderDemoPage();
     });
 
 //sharedPreferences
