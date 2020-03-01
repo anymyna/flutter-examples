@@ -11,6 +11,7 @@ import '../ui/notification.dart';
 import '../ui/gesture_detector.dart';
 import '../ui/share_page.dart';
 import '../ui/provider_demo.dart';
+import '../ui/url_launcher_demo.dart';
 
 //欢迎页面
 var transitionHandler = Handler(
@@ -89,7 +90,7 @@ var channelHandler = Handler(
 //flutter channel
 var urlLauncherHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-      //return UrlLauncherDemo();
+      return UrlLauncherDemo();
     });
 
 
