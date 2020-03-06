@@ -12,6 +12,7 @@ import '../ui/gesture_detector.dart';
 import '../ui/share_page.dart';
 import '../ui/provider_demo.dart';
 import '../ui/url_launcher_demo.dart';
+import '../ui/video/video_page.dart';
 
 //欢迎页面
 var transitionHandler = Handler(
@@ -85,6 +86,7 @@ var spHandler = Handler(
 var channelHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       //return ChannelDemo();
+      return VideoPage();
     });
 
 //flutter channel

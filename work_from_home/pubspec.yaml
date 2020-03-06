@@ -34,6 +34,8 @@ dependencies:
   esys_flutter_share: ^1.0.2
   provider: ^3.0.0+1
   url_launcher: ^5.2.0
+  fijkplayer: ^0.5.2
+  video_player: ^0.6.4
 
 dev_dependencies:
   flutter_test:

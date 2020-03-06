@@ -28,7 +28,7 @@ class _ListViewState extends State<HomeList> {
     'GestureDetector',//WebView（flutter官方插件）
     'provider状态管理',
     'shared_preferences',
-    'Flutter Channel',
+    'Video',//Flutter Channel
     'url_launcher',
     '对话框',
     '海报轮播',
